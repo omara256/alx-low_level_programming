@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
  * main -Print Programming is like buildng a multilingual puzzle
  * Return: 0 if successful,otherwise not 0 unsuccessful
