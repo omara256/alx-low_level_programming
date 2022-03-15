@@ -1,4 +1,4 @@
-#include "man.h"
+#include "main.h"
 
 /**
  * main -check the code for alx school students
