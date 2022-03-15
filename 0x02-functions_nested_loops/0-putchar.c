@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * main -check the code for alx school students
+ * main - check the code for School students
  *
- * Program that print putchar, followed by a new line
+ * Program that prints _putchar, followed by a new line
  *
  * Return: always 0 (success)
  */
+
 int main(void)
 {
 	char s[] = "_putchar";
