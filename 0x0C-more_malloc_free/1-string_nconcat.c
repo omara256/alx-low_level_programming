@@ -1,51 +1,59 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * string_nconcat - concatenate 2 strings, only n bytes of s2
- * @s1: string 1
- * @s2: string 2
- * @n: bytes to include of s2
- * Return: NULL if fail, else pointer to malloc memory
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: number of bytes of second string to use
+ * Return: pointer to allocated space in memory containing the concatenated
+ * strings or NULL if function fails
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *p;
-	int strlen1, i, c;
+	unsigned int i, j, len1, len2;
+	char *str;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	strlen1 = (unsigned int)_strlen(s1);
-	p = malloc((strlen1 + n + 1) * sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	for (i = 0, c = 0; i < (strlen1 + n); i++)
-	{
-		if (i < strlen1)
-			p[i] = s1[i];
-		else
-			p[i] = s2[c++];
-	}
-	p[i] = '\0';
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	if (len2 < n)
+		n = len2;
 
-	return (p);
+	str = malloc(sizeof(char) * (len1 + n + 1));
+
+	if (str == NULL)
+		return (NULL);
+
+	for (i = 0; i < len1; i++)
+		str[i] = s1[i];
+
+	for (j = 0; j < n; i++, j++)
+		str[i] = s2[j];
+
+	str[i] = '\0';
+
+	return (str);
 }
 
 /**
- * _strlen - find length of string
- * @s: string
+ * _strlen - returns the length of a string
+ * @s: string to be evaluated
  * Return: length of string
  */
-
 int _strlen(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
-		;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
 	return (i);
 }
